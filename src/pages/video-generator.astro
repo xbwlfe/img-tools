@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import ImageToVideoPage from "@components/ImageToVideo";
+import VideoGeneratorSeo from "@components/Seo/VideoGeneratorSeo.astro";
 ---
 
 <Layout title="Video Generator" description="Video Generator">
@@ -20,7 +21,10 @@ import ImageToVideoPage from "@components/ImageToVideo";
     >
     </div>
     <Header />
-    <ImageToVideoPage client:only="react" />
-    <Footer />
+    <section id="image-to-video">
+      <ImageToVideoPage client:only="react" />
+    </section>
+    <VideoGeneratorSeo />
   </main>
+  <Footer />
 </Layout>

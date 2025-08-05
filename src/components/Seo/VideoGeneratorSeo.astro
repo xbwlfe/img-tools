@@ -1,0 +1,130 @@
+---
+import FreeButton from "./FreeButton.astro";
+import StepCard from "./StepCard.astro";
+import Faqs from "./Faqs";
+---
+
+<section
+  id="1"
+  class="bg-gradient-to-b from-[#F3FAFF] to-white pt-[80px] pb-[120px] px-[40px]"
+>
+  <div class="flex flex-row items-center gap-10 max-w-[1500px]">
+    <!-- 左侧介绍文字 -->
+    <div class="flex-1 flex flex-col gap-[40px]">
+      <div class="flex flex-col gap-[30px]">
+        <h3
+          class="text-[36px] leading-[43px] font-bakbak text-center font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          AI Video Generator <br /> Turn Your Vision into Videos
+        </h3>
+        <div class="space-y-4 text-[16px] leading-[19.2px] font-poppins">
+          <p>
+            Whether starting with a detailed prompt or a static image, our
+            advanced AI transforms your concepts into stunning, high-definition
+            videos in seconds.
+          </p>
+          <p>Unleash your creativity and watch your ideas come to life.</p>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <FreeButton href="#image-to-video" />
+      </div>
+    </div>
+    <!-- 右侧视频 -->
+    <div class="flex-1 max-w-[800px]">
+      <video
+        class="w-full h-full object-cover rounded-[16px]"
+        autoplay
+        muted
+        loop
+      >
+        <source
+          src="https://framerusercontent.com/assets/nRfCcXph25AKMPkzyP0ewDGuqIU.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="2" class="bg-white pt-[80px] pb-[120px] px-[40px]">
+  <div class="max-w-[1500px] mx-auto">
+    <!-- 标题和介绍 -->
+    <div class="text-center mb-[60px]">
+      <h3
+        class="text-[36px] leading-[43px] font-bakbak font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-[30px]"
+      >
+        Create Your AI Video in Three Simple Steps
+      </h3>
+      <div
+        class="text-[16px] leading-[19.2px] font-poppins max-w-[800px] mx-auto"
+      >
+        <p>
+          Our intuitive platform streamlines the creation process. No technical
+          skills are required—just follow these easy steps to turn your text or
+          images into captivating videos.
+        </p>
+      </div>
+    </div>
+
+    <!-- 三个步骤卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
+      <StepCard
+        stepNumber={1}
+        title="Upload your Image"
+        description="Start by uploading a source image if you are using the image to video generator. This is the foundation of your video, whether you're animating a character or visualizing a new scene."
+        backgroundColor="bg-[#F3FAFF]"
+      />
+
+      <StepCard
+        stepNumber={2}
+        title="Input your Prompt"
+        description="Guide the AI with simple text commands to define the animation, camera movements, and artistic style. Your words direct the action, bringing dynamic life to your initial concept."
+        backgroundColor="bg-[#FEF5FA]"
+      />
+
+      <StepCard
+        stepNumber={3}
+        title="Generate and Share"
+        description="Click the generate button, and our AI will render your video in moments. You can then preview, download the high-quality result, and share your creation with the world."
+        backgroundColor="bg-[#F1FEF5]"
+      />
+    </div>
+  </div>
+</section>
+<section
+  id="5"
+  class="bg-gradient-to-b from-[#FEF5FA] to-[#F3FAFF] pt-[80px] pb-[120px] px-[40px]"
+>
+  <Faqs
+    title="Frequently Asked Questions"
+    description="Find answers to the common questions about our AI Video Generator. If you have another question, feel free to contact our support team."
+    faq={[
+      {
+        question: "What can I create with this AI video generator?",
+        answer:
+          "Our AI video generator is a versatile creative tool. Use the text-to-video function to turn stories or ideas into dynamic animations, or use the image-to-video feature to bring static photos and illustrations to life. It's perfect for creating short social media videos, educational materials, and personal art projects.",
+      },
+      {
+        question: "Do I need any special skills to use it?",
+        answer:
+          "Absolutely not. Our platform is designed as an easy-to-use online video creator, accessible to everyone regardless of technical background. Just type a sentence or upload a file, you can use our AI video maker to create video from text or convert an image to video effortlessly.",
+      },
+      {
+        question: "What is the quality of the generated videos?",
+        answer:
+          "We prioritize high-quality output. Our AI video maker produces videos in crisp high-definition (HD), ensuring every detail is sharp and clear. The advanced algorithms generate smooth motion and consistent AI animation, resulting in a professional and visually impressive final product.",
+      },
+      {
+        question: "How long does it take to generate a video?",
+        answer:
+          "Speed is one of our key features. Going from prompt to video is a rapid process that typically takes just a few moments to complete. This efficient video generation allows you to experiment with different ideas and produce content quickly without long waiting times.",
+      },
+      {
+        question: "Are there any limits to my creativity?",
+        answer:
+          "This AI-powered video creation tool is designed to give you maximum creative freedom. It supports a rich set of description prompts and artistic styles, allowing you to explore your imagination without limits. Our technology provides a secure and powerful canvas for creating truly unique video content.",
+      },
+    ]}
+  />
+</section>

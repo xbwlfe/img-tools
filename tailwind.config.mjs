@@ -1,28 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: '2rem',
       screens: {
-        "2xl": "1400px",
+        '2xl': '1400px',
       },
     },
     extend: {
       spacing: {
-        12: '48px'
+        12: '48px',
       },
       lineHeight: {
         12: '48px',
-        14: '56px'
+        14: '56px',
       },
       borderRadius: {
-        '2.5xl': '20px'
+        '2.5xl': '20px',
       },
       fontSize: {
         '3.5xl': '32px',
-        '2.5xl': '28px'
+        '2.5xl': '28px',
       },
       opacity: {
         96: '0.96',
@@ -35,7 +35,7 @@ export default {
         12: '0.12',
         '09': '0.09',
         '08': '0.08',
-        '04': '0.04'
+        '04': '0.04',
       },
       colors: {
         primary: {
@@ -54,7 +54,7 @@ export default {
       },
       borderRadius: {
         '2.5xl': '20px',
-        '4xl': '32px'
+        '4xl': '32px',
       },
     },
     fontFamily: {
@@ -92,10 +92,14 @@ export default {
         "Segoe UI Symbol",
         "Noto Color Emoji",
       ],
+      bakbak: ['Bakbak One', 'sans-serif'],
+      poppins: ['Poppins', 'sans-serif'],
+      bricolage: ['Bricolage Grotesque', 'sans-serif'],
+      schibsted: ['Schibsted Grotesk', 'sans-serif'],
     },
   },
   corePlugins: {
-    aspectRatio: false
+    aspectRatio: false,
   },
   plugins: [require('@tailwindcss/aspect-ratio'), require('daisyui'), require("@tailwindcss/typography")],
 };

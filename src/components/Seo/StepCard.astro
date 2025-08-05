@@ -1,0 +1,29 @@
+---
+export interface Props {
+  stepNumber: number;
+  title: string;
+  description: string;
+  backgroundColor: string;
+}
+
+const { stepNumber, title, description, backgroundColor } = Astro.props;
+---
+
+<div
+  class={`${backgroundColor} flex flex-col items-center rounded-[16px] p-[40px] text-center shadow-sm`}
+>
+  <div
+    class="w-[55px] h-[55px] rounded-full mb-[30px] shadow-[0_0_0_18.3561px_rgb(231,225,255)] opacity-100"
+    style={`background: linear-gradient(109deg, rgb(236, 131, 253) 0%, rgb(13, 183, 255) 100%);`}
+  >
+    <div class="flex items-center justify-center w-full h-full">
+      <p class="text-white text-[30px] font-semibold">{stepNumber}</p>
+    </div>
+  </div>
+  <h4 class="text-[24px] leading-[29px] font-bakbak mb-[20px] text-[#1F2937]">
+    {title}
+  </h4>
+  <p class="text-[16px] leading-[19.2px] font-poppins text-[#4B5563]">
+    {description}
+  </p>
+</div>
