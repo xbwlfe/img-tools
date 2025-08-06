@@ -1,0 +1,232 @@
+---
+import StepCard from './StepCard.astro';
+import ReviewCard from './ReviewCard.astro';
+import Faqs from '../Faqs';
+import WhyChooseItem from './WhyChooseItem';
+import FreeButton from '../FreeButton';
+
+const whyChoose = [
+  {
+    title: 'Unwavering Character Consistency',
+    desc: 'Maintain the identity of your subjects with remarkable precision across scenes. Inspired by breakthroughs in models like Kling, our AI ensures that characters and key objects retain their specific features and appearance, solving a critical challenge in AI video creation.',
+    imageUrl: '/images/video-generator/tDA7dYje1Ob82HVO4tQSZKdXhc.png',
+    videoUrl:
+      'https://files.img-tools.app/video-generator/0dc14d91832c422950727fa404c11d7d.mp4',
+  },
+  {
+    title: 'Advanced Dynamic Realism',
+    desc: 'Experience unparalleled fluidity and lifelike motion. Harnessing physics simulations comparable to leading technologies like Runway Gen-4, our AI excels at creating realistic dynamic effects—from flowing water to natural character movement—all displayed in a fluid, visually stunning experience.',
+    imageUrl: '/images/video-generator/GNPXmcWC6m6MMYkFzkb4rHZIFtw.png',
+    videoUrl:
+      'https://files.img-tools.app/video-generator/Z5Yvh4aQ0eusdXwotbSfRE9tk.mp4',
+  },
+  {
+    title: 'Unmatched Prompt Fidelity',
+    desc: 'Our AI excels at interpreting your text prompts with remarkable accuracy, inspired by the deep semantic understanding of models like Google Veo3. From complex actions to subtle artistic styles, what you describe is what you get, ensuring the final video faithfully translates your vision into motion.',
+    videoUrl:
+      'https://files.img-tools.app/video-generator/0LuqDLPJNSokXNlV6O1u5xFsY.mp4',
+  },
+  {
+    title: 'Zero-Hassle Online Creation',
+    desc: 'Access the power of an AI video generation suite without the complexity. While advanced models often require technical expertise, our platform offers an intuitive, browser-based experience. No downloads, no coding—just your idea and a few clicks, simple and fast.',
+    videoUrl:
+      'https://files.img-tools.app/video-generator/SqsrIUoi9BXgpuSeYcxsCKSxAWc.mp4',
+  },
+];
+
+const reviews = [
+  {
+    name: '@Alex Chen',
+    avatar: '/images/video-generator/Alex-Chen.png',
+    review:
+      'This tool is a game-changer. I uploaded one of my illustrations and, with a few simple prompts, generated a beautiful, flowing animation. It perfectly captured the style and detail of my original work, giving it a whole new dimension.',
+    backgroundColor: 'bg-[#F3FAFF]',
+  },
+  {
+    name: '@Maria Garcia',
+    avatar: '/images/video-generator/Maria-Garcia.png',
+    review:
+      'As a marketer, I need to create engaging social media content fast. The text-to-video feature has transformed my workflow. I can now turn a single tagline into a high-quality promotional clip in just minutes.',
+    backgroundColor: 'bg-[#FEF5FA]',
+  },
+  {
+    name: '@Ben Carter',
+    avatar: '/images/video-generator/Ben-Carter.png',
+    review:
+      'I was impressed by how easy this AI video creator is to use. The interface is clean, and the ability to work from both images and text is incredibly versatile. The generation speed and final video quality far exceeded my expectations.',
+    backgroundColor: 'bg-[#F1FEF5]',
+  },
+];
+---
+
+<section
+  id="1"
+  class="bg-gradient-to-b from-[#F3FAFF] to-white pt-[80px] pb-[120px] px-[40px]"
+>
+  <div class="max-w-[1500px] mx-auto">
+    <div class="flex flex-col xl:flex-row items-center gap-10 max-w-[1500px]">
+      <!-- 左侧介绍文字 -->
+      <div class="flex-1 flex flex-col gap-[40px]">
+        <div class="flex flex-col gap-[30px]">
+          <h2 class="section-title text-center">
+            AI Video Generator <br /> Turn Your Vision into Videos
+          </h2>
+          <div class="section-desc space-y-4">
+            <p>
+              Whether starting with a detailed prompt or a static image, our
+              advanced AI transforms your concepts into stunning,
+              high-definition videos in seconds.
+            </p>
+            <p>Unleash your creativity and watch your ideas come to life.</p>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <FreeButton href="#image-to-video" />
+        </div>
+      </div>
+      <!-- 右侧视频 -->
+      <div class="flex-1 max-w-[800px]">
+        <video
+          class="w-full h-full object-cover rounded-[16px]"
+          autoplay
+          muted
+          loop
+        >
+          <source
+            src="https://files.img-tools.app/video-generator/nRfCcXph25AKMPkzyP0ewDGuqIU.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="2" class="bg-white pt-[80px] pb-[120px] px-[40px]">
+  <div class="max-w-[1500px] mx-auto">
+    <!-- 标题和介绍 -->
+    <div class="text-center mb-[40px]">
+      <h2 class="section-title mb-[20px]">
+        Create Your AI Video in Three Simple Steps
+      </h2>
+      <div class="section-desc max-w-[800px] mx-auto">
+        <p>
+          Our intuitive platform streamlines the creation process. No technical
+          skills are required—just follow these easy steps to turn your text or
+          images into captivating videos.
+        </p>
+      </div>
+    </div>
+
+    <!-- 三个步骤卡片 -->
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-[40px]">
+      <StepCard
+        stepNumber={1}
+        title="Upload your Image"
+        description="Start by uploading a source image if you are using the image to video generator. This is the foundation of your video, whether you're animating a character or visualizing a new scene."
+        backgroundColor="bg-[#F3FAFF]"
+      />
+
+      <StepCard
+        stepNumber={2}
+        title="Input your Prompt"
+        description="Guide the AI with simple text commands to define the animation, camera movements, and artistic style. Your words direct the action, bringing dynamic life to your initial concept."
+        backgroundColor="bg-[#FEF5FA]"
+      />
+
+      <StepCard
+        stepNumber={3}
+        title="Generate and Share"
+        description="Click the generate button, and our AI will render your video in moments. You can then preview, download the high-quality result, and share your creation with the world."
+        backgroundColor="bg-[#F1FEF5]"
+      />
+    </div>
+  </div>
+</section>
+
+<section
+  id="3"
+  class="bg-gradient-to-b from-[#F3FAFF] to-[#fef5fa] pt-[80px] pb-[120px] px-[40px]"
+>
+  <div class="max-w-[1500px] mx-auto">
+    <div class="text-center mb-[40px]">
+      <h2 class="section-title text-center mb-[20px]">
+        Why Choose Our AI Video Generator?
+      </h2>
+      <p class="section-desc">
+        Our tool is engineered to deliver a superior creative experience.
+        Discover the key advantages that empower you to produce
+        professional-grade videos with ease.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-[40px]">
+      {
+        whyChoose.map((item, index) => (
+          <WhyChooseItem
+            title={item.title}
+            desc={item.desc}
+            imageUrl={item.imageUrl}
+            videoUrl={item.videoUrl}
+            reverse={index % 2 === 1}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section id="4" class="bg-white pt-[80px] pb-[120px] px-[40px]">
+  <div class="max-w-[1500px] mx-auto">
+    <div class="text-center mb-[40px]">
+      <h2 class="section-title text-center mb-[20px]">
+        Hear From Our Community of Creators
+      </h2>
+      <p class="section-desc">
+        Our AI video generator has empowered thousands of users to bring their
+        visions to life. Here's what some of them have to say.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      {reviews.map((review) => <ReviewCard {...review} />)}
+    </div>
+  </div>
+</section>
+
+<section
+  id="5"
+  class="bg-gradient-to-b from-[#FEF5FA] to-[#F3FAFF] pt-[80px] pb-[120px] px-[40px]"
+>
+  <Faqs
+    title="Frequently Asked Questions"
+    description="Find answers to the common questions about our AI Video Generator. If you have another question, feel free to contact our support team."
+    faq={[
+      {
+        question: 'What can I create with this AI video generator?',
+        answer:
+          "Our AI video generator is a versatile creative tool. Use the text-to-video function to turn stories or ideas into dynamic animations, or use the image-to-video feature to bring static photos and illustrations to life. It's perfect for creating short social media videos, educational materials, and personal art projects.",
+      },
+      {
+        question: 'Do I need any special skills to use it?',
+        answer:
+          'Absolutely not. Our platform is designed as an easy-to-use online video creator, accessible to everyone regardless of technical background. Just type a sentence or upload a file, you can use our AI video maker to create video from text or convert an image to video effortlessly.',
+      },
+      {
+        question: 'What is the quality of the generated videos?',
+        answer:
+          'We prioritize high-quality output. Our AI video maker produces videos in crisp high-definition (HD), ensuring every detail is sharp and clear. The advanced algorithms generate smooth motion and consistent AI animation, resulting in a professional and visually impressive final product.',
+      },
+      {
+        question: 'How long does it take to generate a video?',
+        answer:
+          'Speed is one of our key features. Going from prompt to video is a rapid process that typically takes just a few moments to complete. This efficient video generation allows you to experiment with different ideas and produce content quickly without long waiting times.',
+      },
+      {
+        question: 'Are there any limits to my creativity?',
+        answer:
+          'This AI-powered video creation tool is designed to give you maximum creative freedom. It supports a rich set of description prompts and artistic styles, allowing you to explore your imagination without limits. Our technology provides a secure and powerful canvas for creating truly unique video content.',
+      },
+    ]}
+  />
+</section>

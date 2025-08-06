@@ -1,9 +1,9 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import ImageToVideoPage from "@components/ImageToVideo";
-import VideoGeneratorSeo from "@components/Seo/VideoGeneratorSeo.astro";
+import Layout from '@layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import ImageToVideoPage from '@components/ImageToVideo';
+import SeoSections from '@components/Seo/VideoGenerator/SeoSections.astro';
 ---
 
 <Layout title="Video Generator" description="Video Generator">
@@ -24,7 +24,7 @@ import VideoGeneratorSeo from "@components/Seo/VideoGeneratorSeo.astro";
     <section id="image-to-video">
       <ImageToVideoPage client:only="react" />
     </section>
-    <VideoGeneratorSeo />
+    <SeoSections />
   </main>
   <Footer />
 </Layout>
