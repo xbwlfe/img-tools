@@ -1,0 +1,39 @@
+---
+export interface Props {
+  name: string;
+  avatar: string;
+  review: string;
+  backgroundColor: string;
+}
+
+const { name, avatar, review, backgroundColor } = Astro.props;
+---
+
+<div
+  class={`${backgroundColor} rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200`}
+>
+  <div class="flex items-start gap-4">
+    <!-- 用户头像 -->
+    <div class="flex-shrink-0">
+      <img
+        src={avatar}
+        alt={name}
+        class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- 用户信息和评价内容 -->
+    <div class="flex-1 min-w-0">
+      <!-- 用户名 -->
+      <h4 class="text-lg font-semibold text-gray-900 mb-3 font-poppins">
+        {name}
+      </h4>
+
+      <!-- 评价内容 -->
+      <p class="text-sm leading-relaxed text-gray-700 font-poppins">
+        "{review}"
+      </p>
+    </div>
+  </div>
+</div>
