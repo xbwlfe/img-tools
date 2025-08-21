@@ -7,15 +7,12 @@ import { useMemoizedFn } from 'ahooks'
 import website from '@configs/website.json'
 
 import InputField from './InputField'
-import { FORM_FIELDS, PRODUCT_TYPE } from './enums'
+import { FORM_FIELDS } from './enums'
 import { useDispatch, useStore } from './store'
 import useHandlers from './useHandlers'
 import { validators } from './validators'
 
 import Loading from './Loading'
-
-const years = new Array(27).fill(0).map((_, i) => (new Date().getFullYear() + i).toString())
-const months = new Array(12).fill(0).map((_, i) => (i + 1).toString().padStart(2, '0'))
 
 const CreditCardForm = ({ cdnHost = website.cdn_host, product }) => {
 	const { createOrder } = useHandlers()

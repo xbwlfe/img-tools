@@ -6,14 +6,8 @@
   "auth_header": "Authorization",
   "locale_key": "NEXT_LOCALE",
   "locales": ["en"],
-  "cdn_host": "https://files.soulfun.ai",
-  "cdn_host_r2": "https://soulfun-files.relaxops.cc",
-  "apple_app_down_url": "https://apps.apple.com/app/apple-store/id6474281790",
+  "cdn_host": "https://static.img-tools.app",
   "ios_download_enabled": false,
   "android_download_enabled": false,
-  "android_app_down_url": "https://play.google.com/store/apps/details",
-  "waifu_files_url": "https://waifu-files.faceplay.me/cdn-cgi/image",
-  "apk_app_down_url_dev": "https://files.soulfun.ai/apk%2Fsoulfun-v1.5.10%2B24-arm64-v8a-dev-release.apk",
-  "apk_app_down_url_prod": "https://files.soulfun.ai/apk/soulfun-prod-v1.7.1-2028.apk",
   "paddle_public_key": "pk_live_39433D7D3D4D5D6D"
 }

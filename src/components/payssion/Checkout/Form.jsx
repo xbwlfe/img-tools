@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 
 import { useMemoizedFn } from 'ahooks'
 
+import website from '../../../configs/website.json'
 import InputField from './InputField'
 import { FORM_FIELDS, PRODUCT_TYPE, supportedCurrencies } from './enums'
 import { useDispatch, useStore } from './store'
@@ -11,7 +12,7 @@ import useHandlers from './useHandlers'
 import { Spin } from 'antd'
 import { validators } from './validators'
 
-const CreditCardForm = ({ cdnHost = 'https://files.deepswap.net', product, payment }) => {
+const CreditCardForm = ({ cdnHost = website.cdn_host, product, payment }) => {
 	const { createOrderWithAddress } = useHandlers()
 	const store = useStore()
 	const dispatch = useDispatch()

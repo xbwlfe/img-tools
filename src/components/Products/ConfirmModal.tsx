@@ -28,7 +28,7 @@ const ConfirmModal = ({ product, ordering, onClose, onConfirm, onChange }) => {
                 <td className="py-2.5 text-left">Price</td>
                 <td className="py-2.5 text-right text-white">{product?.price}</td>
               </tr>
-              {product?.platform === Platform.DeepSwap && (
+              {product?.platform === Platform.DS && (
                 <>
                   <tr>
                     <td className="hidden text-left xl:table-cell xl:py-2.5">
@@ -79,7 +79,7 @@ const ConfirmModal = ({ product, ordering, onClose, onConfirm, onChange }) => {
             </tbody>
           </table>
         </div>
-        {product?.platform === Platform.DeepSwap && (
+        {product?.platform === Platform.DS && (
           <p className="text-sm text-white/60 xl:text-base">
             · If a user ID is provided, the credits will be directly added to the user ID.
             <br />· If no user ID is provided, a redemption code will be sent, which must be
@@ -94,7 +94,7 @@ const ConfirmModal = ({ product, ordering, onClose, onConfirm, onChange }) => {
                 ? null
                 : () => {
                     if (
-                      product?.platform !== Platform.DeepSwap ||
+                      product?.platform !== Platform.DS ||
                       inputRef.current.checkValidity()
                     ) {
                       onConfirm()

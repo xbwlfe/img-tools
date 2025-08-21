@@ -4,7 +4,7 @@ export const TagType = {
 }
 
 export const Platform = {
-  DeepSwap: 0,
+  DS: 0,
   PdfTools: 1
 }
 
