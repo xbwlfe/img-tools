@@ -16,7 +16,7 @@ export default function PaymentNetAB() {
     const params = new URLSearchParams(window.location.search)
     const status = params.get('status')
     // A站手动拷贝链接过来时，带了ext
-    const ext = params.get('ext')
+    const ext = decryptUrl(params.get('ext'))
     // A站自动跳转过来时，带了payUrl
     const payUrl = params.get('payUrl')
     // 支付完成回来会带上bl，如果bl不是当前域名且有flag，才跳转回A站
@@ -65,6 +65,9 @@ export default function PaymentNetAB() {
 }
 
 const decryptUrl = (url) => {
+  if (url.startsWith('http')) {
+    return url
+  }
   const key = import.meta.env.PUBLIC_PAYMENT_ENCRYPT_KEY
   const decryptedBytes = CryptoJS.AES.decrypt(window.atob(url), key)
   return decryptedBytes.toString(CryptoJS.enc.Utf8)
