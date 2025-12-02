@@ -9,8 +9,7 @@ import { createImageToVideoTask, createTextToVideoTask, getProcessingTask, getTa
 import { BizType, TaskStatus } from './controllers/enums'
 import type { FnCreateParams, ILocaleFile } from './controllers/interfaces'
 import { useImageToVideo } from './controllers/context'
-import { FILE_TYPE } from '@utils/upload/enums'
-
+import { UploadFileType } from '@utils/uploadHub/types'
 interface IUseHandlers {
   create: (params: FnCreateParams) => Promise<void>
 }
@@ -44,7 +43,7 @@ const useHandlers = (): IUseHandlers => {
     let fileId = localeFile.fileId
     if (!fileId) {
       // 如果没有 fileId，需要先上传文件
-      const { fileId: _fileId } = await handleUpload(localeFile.file, FILE_TYPE.HUMAN_FOUNDATION, {
+      const { fileId: _fileId } = await handleUpload(localeFile.file, UploadFileType.HUMAN_FOUNDATION, {
         isCompress: false
       })
       fileId = _fileId
