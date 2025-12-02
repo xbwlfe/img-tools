@@ -37,11 +37,6 @@ export const getVoiceChangeSetting = async () => {
   return res.data
 }
 
-export const postFilesSignatures = async (params) => {
-  const json = await post(`/users/me/signatures/-/files`, params)
-  return json
-}
-
 // 查询处理中的任务
 export async function queryTaskStatus(taskIds) {
   const { data } = await get(`/users/me/processing/tasks`, { taskIds })
