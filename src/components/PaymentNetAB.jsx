@@ -15,10 +15,7 @@ export default function PaymentNetAB() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const status = params.get('status')
-    // A站手动拷贝链接过来时，带了ext
-    const ext = decryptUrl(params.get('ext'))
-    // A站自动跳转过来时，带了payUrl
-    const payUrl = params.get('payUrl')
+    const payUrl = params.get('payUrl') || params.get('ext')
     // 支付完成回来会带上bl，如果bl不是当前域名且有flag，才跳转回A站
     const bl = params.get('bl')
 
@@ -28,10 +25,6 @@ export default function PaymentNetAB() {
       const decryptedUrl = decryptUrl(payUrl)
       cookie.set(FLAG, Date.now().toString(), ONE_HOUR)
       location.href = decryptedUrl
-      return
-    } else if (ext) {
-      // ds用户手动拷贝链接过来的
-      window.location.href = ext
       return
     }
 
