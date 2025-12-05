@@ -1,10 +1,9 @@
 
-import kebabCase from 'lodash.kebabcase'
-
-import { UPLOAD, FILE_TYPE } from './enums'
-import { post } from '@utils/request'
+import { UPLOAD } from './enums'
 
 import { preprocessImage, randomStr } from './preprocess'
+import { uploadHub } from '@utils/uploadHub'
+import { UploadFileType } from '@utils/uploadHub/types'
 
 interface IOptions {
   isCompress?: boolean
@@ -21,7 +20,7 @@ interface IOptions {
  *  * */
 export default async function handleUpload(
   imgFile: File,
-  fileType: FILE_TYPE,
+  fileType: UploadFileType,
   otherOptions?: IOptions
 ) {
   const {
@@ -66,56 +65,10 @@ export default async function handleUpload(
     return Promise.reject(new Error('The file cannot exceed 4 MB!'))
   }
 
-  // 此处获取的extension必须与压缩后的文件类型一致
-  const type = file.type.split('/')[1]
-
-  // 2. 获取S3上传签名，并上传到s3
-  const params = {
-    file: file,
-    fileType: fileType,
-    extension: type
-  }
-  const fileId = await uploadToS3(params)
+  const { fileId } = await uploadHub({ file, fileType })
 
   return { fileId, file }
 }
-
-async function uploadToS3(params) {
-  const { file, fileType, extension } = params
-  const { data, success, errorMsg } = await post('/users/me/signatures/s3', {
-    fileType,
-    fileSize: file.size,
-    extension
-  })
-  if (!success) {
-    return Promise.reject(new Error(errorMsg))
-  }
-
-  // aws 不能多传参数， expire 不要传
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-  const { url, expire, fileId, ...uploadParams } = data as any
-  // FormData 浏览器自动设置
-  // aws 没有返回任何内容
-  await post(url, getFormData(uploadParams, file, file.type))
-
-  return fileId as string
-}
-
-function getFormData(data, file, contentType) {
-  const { policy, ...rest } = data
-  const fd = new FormData()
-  if (contentType) {
-    fd.append('content-type', contentType)
-  }
-  fd.append('Policy', policy)
-  for (const field in rest) {
-    fd.append(kebabCase(field).replace('xamz', 'x-amz'), rest[field])
-  }
-  // 要放到最后
-  fd.append('file', file)
-  return fd
-}
-
 
 // 判断是否是H5
 export function isMobile() {
@@ -127,6 +80,6 @@ export function isMobile() {
   }
 }
 
-export { preprocessImage, randomStr }
+export { randomStr }
 
 
